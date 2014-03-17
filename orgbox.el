@@ -44,7 +44,7 @@
 
 (require 'org-agenda)
 
-(defun org-agenda-schedule-later-today ()
+(defun orgbox-later-today ()
   "Schedule a task for later today."
   (interactive)
   (let ((later-today (format-time-string "%Y-%m-%d %H:%M"
@@ -52,32 +52,32 @@
                                                      (seconds-to-time (* 3 60 60))))))
     (org-agenda-schedule nil later-today)))
 
-(defun org-agenda-schedule-this-evening ()
+(defun orgbox-this-evening ()
   "Schedule a task for this evening."
   (interactive)
   (org-agenda-schedule nil "18:00"))
 
-(defun org-agenda-schedule-tomorrow ()
+(defun orgbox-tomorrow ()
   "Schedule a task for tomorrow."
   (interactive)
   (org-agenda-schedule nil "+1d 8:00"))
 
-(defun org-agenda-schedule-this-weekend ()
+(defun orgbox-this-weekend ()
   "Schedule a task for this weekend."
   (interactive)
   (org-agenda-schedule nil "+sat 10:00"))
 
-(defun org-agenda-schedule-next-week ()
+(defun orgbox-next-week ()
   "Schedule a task for next week."
   (interactive)
   (org-agenda-schedule nil "+mon 8:00"))
 
-(defun org-agenda-schedule-in-a-month ()
+(defun orgbox-in-a-month ()
   "Schedule a task for 1 month later."
   (interactive)
   (org-agenda-schedule nil "+1m"))
 
-(defun org-agenda-schedule-someday ()
+(defun orgbox-someday ()
   "Schedule a task for someday."
   (interactive)
   (org-agenda-schedule nil "+3m"))
@@ -89,13 +89,13 @@
           [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
   (let ((a (read-char-exclusive)))
     (case a
-      (?l (call-interactively 'org-agenda-schedule-later-today))
-      (?e (call-interactively 'org-agenda-schedule-this-evening))
-      (?t (call-interactively 'org-agenda-schedule-tomorrow))
-      (?w (call-interactively 'org-agenda-schedule-this-weekend))
-      (?n (call-interactively 'org-agenda-schedule-next-week))
-      (?i (call-interactively 'org-agenda-schedule-in-a-month))
-      (?s (call-interactively 'org-agenda-schedule-someday))
+      (?l (call-interactively 'orgbox-later-today))
+      (?e (call-interactively 'orgbox-this-evening))
+      (?t (call-interactively 'orgbox-tomorrow))
+      (?w (call-interactively 'orgbox-this-weekend))
+      (?n (call-interactively 'orgbox-next-week))
+      (?i (call-interactively 'orgbox-in-a-month))
+      (?s (call-interactively 'orgbox-someday))
       (?p (call-interactively 'org-agenda-schedule))
       (?q (message "Abort"))
       (otherwise (error "Invalid key" )))))
