@@ -1,7 +1,7 @@
 orgbox
 ======
 
-Mailbox-like task rescheduling in org agenda.
+Mailbox-like task scheduling in org agenda.
 
 
 Usage
