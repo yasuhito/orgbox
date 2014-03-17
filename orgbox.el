@@ -86,7 +86,7 @@
   "Schedule a task interactively."
   (interactive)
   (message "Schedule: [l]ater today  this [e]vening  [t]omorrow  this [w]eekend
-        [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
+          [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
   (let ((a (read-char-exclusive)))
     (case a
       (?l (call-interactively 'org-agenda-schedule-later-today))
@@ -101,7 +101,7 @@
       (otherwise (error "Invalid key" )))))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map (kbd "C-c m") 'org-box))
+          '(lambda () (org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox))
           'append)
 
 (provide 'orgbox)
