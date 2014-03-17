@@ -62,8 +62,14 @@
   (interactive)
   (org-agenda-schedule nil "+1d 8:00"))
 
-(defun orgbox-this-weekend ()
-  "Schedule a task for this weekend."
+(defun orgbox-weekend-p ()
+  "Today is weekend?"
+  (let ((day-of-week (calendar-day-of-week
+                      (calendar-gregorian-from-absolute (org-today)))))
+    (member day-of-week org-agenda-weekend-days)))
+
+(defun orgbox-this-or-next-weekend ()
+  "Schedule a task for this or next weekend."
   (interactive)
   (org-agenda-schedule nil "+sat 10:00"))
 
@@ -85,14 +91,15 @@
 (defun orgbox ()
   "Schedule a task interactively."
   (interactive)
-  (message "Schedule: [l]ater today  this [e]vening  [t]omorrow  this [w]eekend
-          [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
+  (message "Schedule: [l]ater today  this [e]vening  [t]omorrow  %s [w]eekend
+          [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort"
+           (if (orgbox-weekend-p) "next" "this"))
   (let ((a (read-char-exclusive)))
     (case a
       (?l (call-interactively 'orgbox-later-today))
       (?e (call-interactively 'orgbox-this-evening))
       (?t (call-interactively 'orgbox-tomorrow))
-      (?w (call-interactively 'orgbox-this-weekend))
+      (?w (call-interactively 'orgbox-this-or-next-weekend))
       (?n (call-interactively 'orgbox-next-week))
       (?i (call-interactively 'orgbox-in-a-month))
       (?s (call-interactively 'orgbox-someday))
