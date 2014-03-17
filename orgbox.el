@@ -53,10 +53,16 @@
                                                      (seconds-to-time (* 3 60 60))))))
     (org-agenda-schedule nil later-today)))
 
-(defun orgbox-this-evening ()
-  "Schedule a task for this evening."
+(defun orgbox-evening-p ()
+  "Is already evening?"
+  (> (nth 2 (decode-time (current-time))) 18))
+
+(defun orgbox-this-or-tomorrow-evening ()
+  "Schedule a task for this or tomorrow evening."
   (interactive)
-  (org-agenda-schedule nil "18:00"))
+  (if (orgbox-evening-p)
+      (org-agenda-schedule nil "+1d 18:00")
+    (org-agenda-schedule nil "18:00")))
 
 (defun orgbox-tomorrow ()
   "Schedule a task for tomorrow."
@@ -92,13 +98,14 @@
 (defun orgbox ()
   "Schedule a task interactively."
   (interactive)
-  (message "Schedule: [l]ater today  this [e]vening  [t]omorrow  %s [w]eekend
+  (message "Schedule: [l]ater today  %s [e]vening  [t]omorrow  %s [w]eekend
           [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort"
+           (if (orgbox-evening-p) "tomorrow" "this")
            (if (orgbox-weekend-p) "next" "this"))
   (let ((a (read-char-exclusive)))
     (case a
       (?l (call-interactively 'orgbox-later-today))
-      (?e (call-interactively 'orgbox-this-evening))
+      (?e (call-interactively 'orgbox-this-or-tomorrow-evening))
       (?t (call-interactively 'orgbox-tomorrow))
       (?w (call-interactively 'orgbox-this-or-next-weekend))
       (?n (call-interactively 'orgbox-next-week))
