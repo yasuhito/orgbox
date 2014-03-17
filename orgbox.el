@@ -5,7 +5,8 @@
 ;; Author: Yasuhito Takamiya <yasuhito@gmail.com>
 ;; URL: https://github.com/yasuhito/orgbox
 ;; Keywords: org
-;; Version: 0.1.1
+;; Version: 0.1.2
+;; Package-Requires: ((org "8.0"))
 
 ;; This file is not part of Org.
 ;; This file is not part of GNU Emacs.
@@ -107,9 +108,7 @@
       (?q (message "Abort"))
       (otherwise (error "Invalid key" )))))
 
-(add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox))
-          'append)
+(org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox)
 
 (provide 'orgbox)
 
