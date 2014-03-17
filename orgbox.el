@@ -107,9 +107,7 @@
       (?q (message "Abort"))
       (otherwise (error "Invalid key" )))))
 
-(add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox))
-          'append)
+(org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox)
 
 (provide 'orgbox)
 
