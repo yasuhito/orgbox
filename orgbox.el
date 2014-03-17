@@ -6,6 +6,7 @@
 ;; URL: https://github.com/yasuhito/orgbox
 ;; Keywords: org
 ;; Version: 0.1.1
+;; Package-Requires: ((org "8.0"))
 
 ;; This file is not part of Org.
 ;; This file is not part of GNU Emacs.
