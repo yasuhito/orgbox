@@ -7,6 +7,9 @@
 ;; Keywords: org
 ;; Version: 0.1.0
 
+;; This file is not part of Org.
+;; This file is not part of GNU Emacs.
+
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 3, or (at your option)
@@ -24,7 +27,18 @@
 
 ;;; Commentary:
 ;;
-;; See the README.md for more details.
+;; This package defines a set of handy functions to schedule your
+;; agenda tasks like Mailbox (http://www.mailboxapp.com/).  Supported
+;; scheduling methods are as follows:
+;;
+;; - Later Today
+;; - This Evening
+;; - Tomorrow
+;; - This Weekend
+;; - Next Week
+;; - In a Month
+;; - Someday
+;; - Pick Date
 ;;
 ;;; Code:
 
@@ -72,7 +86,7 @@
   "Schedule a task interactively."
   (interactive)
   (message "Schedule: [l]ater today  this [e]vening  [t]omorrow  this [w]eekend
-        [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
+          [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort")
   (let ((a (read-char-exclusive)))
     (case a
       (?l (call-interactively 'org-agenda-schedule-later-today))
@@ -85,6 +99,10 @@
       (?p (call-interactively 'org-agenda-schedule))
       (?q (message "Abort"))
       (otherwise (error "Invalid key" )))))
+
+(add-hook 'org-agenda-mode-hook
+          '(lambda () (org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox))
+          'append)
 
 (provide 'orgbox)
 
