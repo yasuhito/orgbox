@@ -7,6 +7,9 @@
 ;; Keywords: org
 ;; Version: 0.1.0
 
+;; This file is not part of Org.
+;; This file is not part of GNU Emacs.
+
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 3, or (at your option)
@@ -24,7 +27,18 @@
 
 ;;; Commentary:
 ;;
-;; See the README.md for more details.
+;; This package defines a set of handy functions to schedule your
+;; agenda tasks like Mailbox (http://www.mailboxapp.com/).  Supported
+;; scheduling methods are as follows:
+;;
+;; - Later Today
+;; - This Evening
+;; - Tomorrow
+;; - This Weekend
+;; - Next Week
+;; - In a Month
+;; - Someday
+;; - Pick Date
 ;;
 ;;; Code:
 
