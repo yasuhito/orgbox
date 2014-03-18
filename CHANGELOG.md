@@ -1,6 +1,6 @@
 # Changelog
 
-## master (unreleased)
+## 0.1.4 (3/18/2014)
 
 ### Changes
 
