@@ -5,7 +5,7 @@
 ;; Author: Yasuhito Takamiya <yasuhito@gmail.com>
 ;; URL: https://github.com/yasuhito/orgbox
 ;; Keywords: org
-;; Version: 0.1.4
+;; Version: 0.1.5
 ;; Package-Requires: ((org "8.0"))
 
 ;; This file is not part of Org.
