@@ -115,7 +115,7 @@
       (?q (message "Abort"))
       (otherwise (error "Invalid key" )))))
 
-(org-defkey org-agenda-mode-map (kbd "C-c m") 'orgbox)
+(org-defkey org-agenda-mode-map (kbd "C-c C-s") 'orgbox)
 
 (provide 'orgbox)
 
