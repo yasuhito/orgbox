@@ -5,7 +5,7 @@
 ;; Author: Yasuhito Takamiya <yasuhito@gmail.com>
 ;; URL: https://github.com/yasuhito/orgbox
 ;; Keywords: org
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Package-Requires: ((org "8.0"))
 
 ;; This file is not part of Org.
@@ -103,7 +103,7 @@
            (if (orgbox-evening-p) "tomorrow" "this")
            (if (orgbox-weekend-p) "next" "this"))
   (let ((a (read-char-exclusive)))
-    (case a
+    (cl-case a
       (?l (call-interactively 'orgbox-later-today))
       (?e (call-interactively 'orgbox-this-or-tomorrow-evening))
       (?t (call-interactively 'orgbox-tomorrow))
