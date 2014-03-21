@@ -1,5 +1,12 @@
 # Changelog
 
+## develop (unreleased)
+
+### Changes
+
+* Rebound 'in a month' to <kbd>C-c C-s m</kbd>
+
+
 ## 0.1.5 (3/18/2014)
 
 ### Bugs fixed
