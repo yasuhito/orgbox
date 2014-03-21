@@ -5,7 +5,7 @@
 ;; Author: Yasuhito Takamiya <yasuhito@gmail.com>
 ;; URL: https://github.com/yasuhito/orgbox
 ;; Keywords: org
-;; Version: 0.1.6
+;; Version: 0.2.0
 ;; Package-Requires: ((org "8.0") (cl-lib "0.5"))
 
 ;; This file is not part of Org.
@@ -100,7 +100,7 @@
   "Schedule a task interactively."
   (interactive)
   (message "Schedule: [l]ater today  %s [e]vening  [t]omorrow  %s [w]eekend
-          [n]ext week  [i]n a month  [s]omeday  [p]ick date  [q]uit/abort"
+          [n]ext week  in a [m]onth  [s]omeday  [p]ick date  [q]uit/abort"
            (if (orgbox-evening-p) "tomorrow" "this")
            (if (orgbox-weekend-p) "next" "this"))
   (let ((a (read-char-exclusive)))
@@ -110,7 +110,7 @@
       (?t (call-interactively 'orgbox-tomorrow))
       (?w (call-interactively 'orgbox-this-or-next-weekend))
       (?n (call-interactively 'orgbox-next-week))
-      (?i (call-interactively 'orgbox-in-a-month))
+      (?m (call-interactively 'orgbox-in-a-month))
       (?s (call-interactively 'orgbox-someday))
       (?p (call-interactively 'org-agenda-schedule))
       (?q (message "Abort"))
