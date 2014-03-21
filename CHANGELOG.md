@@ -1,6 +1,6 @@
 # Changelog
 
-## develop (unreleased)
+## 0.2.0 (3/21/2014)
 
 ### Changes
 
@@ -19,6 +19,7 @@
 ### Bugs fixed
 
 * Correct `orgbox` keybinding in the README.md
+
 
 ## 0.1.4 (3/18/2014)
 
