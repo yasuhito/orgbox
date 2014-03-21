@@ -7,6 +7,13 @@
 * Rebound 'in a month' to <kbd>C-c C-s m</kbd>
 
 
+## 0.1.6 (3/21/2014)
+
+### Bugs fixed
+
+* #1 - Fix compilation warnings.
+
+
 ## 0.1.5 (3/18/2014)
 
 ### Bugs fixed
