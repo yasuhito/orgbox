@@ -47,6 +47,7 @@
 (require 'org-agenda)
 
 (defvar orgbox-start-of-day)
+(defvar orgbox-start-of-evening)
 (defvar orgbox-someday)
 
 (defgroup orgbox nil
@@ -55,6 +56,11 @@
 
 (defcustom orgbox-start-of-day "8:00"
   "What time does your day start?"
+  :group 'orgbox
+  :type 'string)
+
+(defcustom orgbox-start-of-evening "18:00"
+  "What time does your evening start?"
   :group 'orgbox
   :type 'string)
 
@@ -84,14 +90,14 @@
 
 (defun orgbox-evening-p ()
   "Is already evening?"
-  (> (nth 2 (decode-time (current-time))) 18))
+  (string< orgbox-start-of-evening (format-time-string "%H:%M" (current-time))))
 
-(defun orgbox-this-or-tomorrow-evening ()
+(defun orgbox-schedule-this-or-tomorrow-evening ()
   "Schedule a task for this or tomorrow evening."
   (interactive)
   (if (orgbox-evening-p)
-      (org-agenda-schedule nil "+1d 18:00")
-    (org-agenda-schedule nil "18:00")))
+      (org-agenda-schedule nil (format "+1d %s" orgbox-start-of-evening))
+    (org-agenda-schedule nil orgbox-start-of-evening)))
 
 (defun orgbox-schedule-tomorrow ()
   "Schedule a task for tomorrow."
@@ -134,7 +140,7 @@
   (let ((a (read-char-exclusive)))
     (cl-case a
       (?l (call-interactively 'orgbox-later-today))
-      (?e (call-interactively 'orgbox-this-or-tomorrow-evening))
+      (?e (call-interactively 'orgbox-schedule-this-or-tomorrow-evening))
       (?t (call-interactively 'orgbox-schedule-tomorrow))
       (?w (call-interactively 'orgbox-this-or-next-weekend))
       (?n (call-interactively 'orgbox-schedule-next-week))
