@@ -1,4 +1,4 @@
-;;; orgbox.el --- Mailbox-like task scheduling in org agenda
+;;; orgbox.el --- Mailbox-like task scheduling in org agenda.
 
 ;; Copyright © 2014 Yasuhito Takamiya <yasuhito@gmail.com>
 
@@ -46,6 +46,28 @@
 (require 'cl-lib)
 (require 'org-agenda)
 
+(defvar orgbox-someday)
+
+(defgroup orgbox nil
+  "Mailbox-like task scheduling in org agenda."
+  :group 'org)
+
+(defcustom orgbox-someday "+3m"
+  "Specify 'Someday' in number of months."
+  :type '(choice (const :tag "1 Month" "+1m")
+                 (const :tag "2 Months" "+2m")
+                 (const :tag "3 Months" "+3m")
+                 (const :tag "4 Months" "+4m")
+                 (const :tag "5 Months" "+5m")
+                 (const :tag "6 Months" "+6m")
+                 (const :tag "7 Months" "+7m")
+                 (const :tag "8 Months" "+8m")
+                 (const :tag "9 Months" "+9m")
+                 (const :tag "10 Months" "+10m")
+                 (const :tag "11 Months" "+11m")
+                 (const :tag "12 Months" "+12m"))
+  :group 'orgbox)
+
 (defun orgbox-later-today ()
   "Schedule a task for later today."
   (interactive)
@@ -91,10 +113,10 @@
   (interactive)
   (org-agenda-schedule nil "+1m"))
 
-(defun orgbox-someday ()
+(defun orgbox-schedule-someday ()
   "Schedule a task for someday."
   (interactive)
-  (org-agenda-schedule nil "+3m"))
+  (org-agenda-schedule nil orgbox-someday))
 
 (defun orgbox ()
   "Schedule a task interactively."
@@ -111,10 +133,10 @@
       (?w (call-interactively 'orgbox-this-or-next-weekend))
       (?n (call-interactively 'orgbox-next-week))
       (?m (call-interactively 'orgbox-in-a-month))
-      (?s (call-interactively 'orgbox-someday))
+      (?s (call-interactively 'orgbox-schedule-someday))
       (?p (call-interactively 'org-agenda-schedule))
       (?q (message "Abort"))
-      (otherwise (error "Invalid key" )))))
+      (otherwise (error "Invalid key")))))
 
 (org-defkey org-agenda-mode-map (kbd "C-c C-s") 'orgbox)
 
