@@ -2,10 +2,12 @@
 
 ## develop (unreleased)
 
-* Replaced function `orgbox-someday` with `orgbox-schedule-someday`.
+* New defcustom `orgbox-start-of-day` allows users to customize the
+  start time of day.
 * New defcustom `orgbox-someday` allows users to customize 'someday'
-  in number of months.
-
+* Replaced function `orgbox-tomorrow` with `orgbox-schedule-tomorrow`.
+* Replaced function `orgbox-next-week` with `orgbox-schedule-next-week`.
+* Replaced function `orgbox-someday` with `orgbox-schedule-someday`.
 
 ## 0.2.0 (3/21/2014)
 
