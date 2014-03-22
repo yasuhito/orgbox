@@ -4,10 +4,15 @@
 
 * New defcustom `orgbox-start-of-day` allows users to customize the
   start time of day.
+* New defcustom `orgbox-start-of-evening` allows users to customize
+  the start time of evening.
 * New defcustom `orgbox-someday` allows users to customize 'someday'
+* Replaced function `orgbox-this-or-tomorrow-evening` with
+  `orgbox-schedule-this-or-tomorrow-evening`.
 * Replaced function `orgbox-tomorrow` with `orgbox-schedule-tomorrow`.
 * Replaced function `orgbox-next-week` with `orgbox-schedule-next-week`.
 * Replaced function `orgbox-someday` with `orgbox-schedule-someday`.
+
 
 ## 0.2.0 (3/21/2014)
 
