@@ -48,6 +48,7 @@
 
 (defvar orgbox-start-of-day)
 (defvar orgbox-start-of-evening)
+(defvar orgbox-later)
 (defvar orgbox-someday)
 
 (defgroup orgbox nil
@@ -63,6 +64,34 @@
   "What time does your evening start?"
   :group 'orgbox
   :type 'string)
+
+(defcustom orgbox-later 3
+  "Specify 'later' in number of hours."
+  :type '(choice (const :tag "1 Hour" 1)
+                 (const :tag "2 Hours" 2)
+                 (const :tag "3 Hours" 3)
+                 (const :tag "4 Hours" 4)
+                 (const :tag "5 Hours" 5)
+                 (const :tag "6 Hours" 6)
+                 (const :tag "7 Hours" 7)
+                 (const :tag "8 Hours" 8)
+                 (const :tag "9 Hours" 9)
+                 (const :tag "10 Hours" 10)
+                 (const :tag "11 Hours" 11)
+                 (const :tag "12 Hours" 12)
+                 (const :tag "13 Hours" 13)
+                 (const :tag "14 Hours" 14)
+                 (const :tag "15 Hours" 15)
+                 (const :tag "16 Hours" 16)
+                 (const :tag "17 Hours" 17)
+                 (const :tag "18 Hours" 18)
+                 (const :tag "19 Hours" 19)
+                 (const :tag "20 Hours" 20)
+                 (const :tag "21 Hours" 21)
+                 (const :tag "22 Hours" 22)
+                 (const :tag "23 Hours" 23)
+                 (const :tag "24 Hours" 24))
+  :group 'orgbox)
 
 (defcustom orgbox-someday "+3m"
   "Specify 'Someday' in number of months."
@@ -80,12 +109,12 @@
                  (const :tag "12 Months" "+12m"))
   :group 'orgbox)
 
-(defun orgbox-later-today ()
+(defun orgbox-schedule-later-today ()
   "Schedule a task for later today."
   (interactive)
   (let ((later-today (format-time-string "%Y-%m-%d %H:%M"
                                            (time-add (current-time)
-                                                     (seconds-to-time (* 3 60 60))))))
+                                                     (seconds-to-time (* orgbox-later 60 60))))))
     (org-agenda-schedule nil later-today)))
 
 (defun orgbox-evening-p ()
@@ -139,7 +168,7 @@
            (if (orgbox-weekend-p) "next" "this"))
   (let ((a (read-char-exclusive)))
     (cl-case a
-      (?l (call-interactively 'orgbox-later-today))
+      (?l (call-interactively 'orgbox-schedule-later-today))
       (?e (call-interactively 'orgbox-schedule-this-or-tomorrow-evening))
       (?t (call-interactively 'orgbox-schedule-tomorrow))
       (?w (call-interactively 'orgbox-this-or-next-weekend))
