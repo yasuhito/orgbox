@@ -46,11 +46,17 @@
 (require 'cl-lib)
 (require 'org-agenda)
 
+(defvar orgbox-start-of-day)
 (defvar orgbox-someday)
 
 (defgroup orgbox nil
   "Mailbox-like task scheduling in org agenda."
   :group 'org)
+
+(defcustom orgbox-start-of-day "8:00"
+  "What time does your day start?"
+  :group 'orgbox
+  :type 'string)
 
 (defcustom orgbox-someday "+3m"
   "Specify 'Someday' in number of months."
@@ -87,10 +93,10 @@
       (org-agenda-schedule nil "+1d 18:00")
     (org-agenda-schedule nil "18:00")))
 
-(defun orgbox-tomorrow ()
+(defun orgbox-schedule-tomorrow ()
   "Schedule a task for tomorrow."
   (interactive)
-  (org-agenda-schedule nil "+1d 8:00"))
+  (org-agenda-schedule nil (format "+1d %s" orgbox-start-of-day)))
 
 (defun orgbox-weekend-p ()
   "Today is weekend?"
@@ -103,10 +109,10 @@
   (interactive)
   (org-agenda-schedule nil "+sat 10:00"))
 
-(defun orgbox-next-week ()
+(defun orgbox-schedule-next-week ()
   "Schedule a task for next week."
   (interactive)
-  (org-agenda-schedule nil "+mon 8:00"))
+  (org-agenda-schedule nil (format "+mon %s" orgbox-start-of-day)))
 
 (defun orgbox-in-a-month ()
   "Schedule a task for 1 month later."
@@ -129,9 +135,9 @@
     (cl-case a
       (?l (call-interactively 'orgbox-later-today))
       (?e (call-interactively 'orgbox-this-or-tomorrow-evening))
-      (?t (call-interactively 'orgbox-tomorrow))
+      (?t (call-interactively 'orgbox-schedule-tomorrow))
       (?w (call-interactively 'orgbox-this-or-next-weekend))
-      (?n (call-interactively 'orgbox-next-week))
+      (?n (call-interactively 'orgbox-schedule-next-week))
       (?m (call-interactively 'orgbox-in-a-month))
       (?s (call-interactively 'orgbox-schedule-someday))
       (?p (call-interactively 'org-agenda-schedule))
