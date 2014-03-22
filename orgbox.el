@@ -155,7 +155,7 @@
   (interactive)
   (org-agenda-schedule nil (format "+mon %s" orgbox-start-of-day)))
 
-(defun orgbox-in-a-month ()
+(defun orgbox-schedule-in-a-month ()
   "Schedule a task for 1 month later."
   (interactive)
   (org-agenda-schedule nil "+1m"))
@@ -179,7 +179,7 @@
       (?t (call-interactively 'orgbox-schedule-tomorrow))
       (?w (call-interactively 'orgbox-schedule-this-or-next-weekend))
       (?n (call-interactively 'orgbox-schedule-next-week))
-      (?m (call-interactively 'orgbox-in-a-month))
+      (?m (call-interactively 'orgbox-schedule-in-a-month))
       (?s (call-interactively 'orgbox-schedule-someday))
       (?p (call-interactively 'org-agenda-schedule))
       (?q (message "Abort"))

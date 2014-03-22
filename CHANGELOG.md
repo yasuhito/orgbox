@@ -22,7 +22,10 @@
 * Replaced function `orgbox-this-or-tomorrow-evening` with
   `orgbox-schedule-this-or-tomorrow-evening`.
 * Replaced function `orgbox-tomorrow` with `orgbox-schedule-tomorrow`.
-* Replaced function `orgbox-next-week` with `orgbox-schedule-next-week`.
+* Replaced function `orgbox-next-week` with
+  `orgbox-schedule-next-week`.
+* Replaced function `orgbox-in-a-month` with
+  `orgbox-schedule-in-a-month`.
 * Replaced function `orgbox-someday` with `orgbox-schedule-someday`.
 
 
