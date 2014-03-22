@@ -47,6 +47,7 @@
 (require 'org-agenda)
 
 (defvar orgbox-start-of-day)
+(defvar orgbox-start-of-weekends)
 (defvar orgbox-start-of-evening)
 (defvar orgbox-later)
 (defvar orgbox-someday)
@@ -57,6 +58,11 @@
 
 (defcustom orgbox-start-of-day "8:00"
   "What time does your day start?"
+  :group 'orgbox
+  :type 'string)
+
+(defcustom orgbox-start-of-weekends "10:00"
+  "What time does your weekends start?"
   :group 'orgbox
   :type 'string)
 
@@ -139,10 +145,10 @@
                       (calendar-gregorian-from-absolute (org-today)))))
     (member day-of-week org-agenda-weekend-days)))
 
-(defun orgbox-this-or-next-weekend ()
+(defun orgbox-schedule-this-or-next-weekend ()
   "Schedule a task for this or next weekend."
   (interactive)
-  (org-agenda-schedule nil "+sat 10:00"))
+  (org-agenda-schedule nil (format "+sat %s" orgbox-start-of-weekends)))
 
 (defun orgbox-schedule-next-week ()
   "Schedule a task for next week."
@@ -171,7 +177,7 @@
       (?l (call-interactively 'orgbox-schedule-later-today))
       (?e (call-interactively 'orgbox-schedule-this-or-tomorrow-evening))
       (?t (call-interactively 'orgbox-schedule-tomorrow))
-      (?w (call-interactively 'orgbox-this-or-next-weekend))
+      (?w (call-interactively 'orgbox-schedule-this-or-next-weekend))
       (?n (call-interactively 'orgbox-schedule-next-week))
       (?m (call-interactively 'orgbox-in-a-month))
       (?s (call-interactively 'orgbox-schedule-someday))
