@@ -1,5 +1,12 @@
 # Changelog
 
+## develop (unreleased)
+
+* Replaced function `orgbox-someday` with `orgbox-schedule-someday`.
+* New defcustom `orgbox-someday` allows users to customize 'someday'
+  in number of months.
+
+
 ## 0.2.0 (3/21/2014)
 
 ### Changes
