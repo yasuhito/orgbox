@@ -1,6 +1,6 @@
 # Changelog
 
-## develop (unreleased)
+## 0.3.0 (3/24/2004)
 
 ### New features
 
