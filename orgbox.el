@@ -47,6 +47,7 @@
 (require 'org-agenda)
 
 (defvar orgbox-start-of-day)
+(defvar orgbox-start-of-week)
 (defvar orgbox-start-of-weekends)
 (defvar orgbox-start-of-evening)
 (defvar orgbox-later)
@@ -60,6 +61,17 @@
   "What time does your day start?"
   :group 'orgbox
   :type 'string)
+
+(defcustom orgbox-start-of-week "mon"
+  "What day does your week start?"
+  :group 'orgbox
+  :type '(choice (const :tag "Monday" "mon")
+                 (const :tag "Tuesday" "tue")
+                 (const :tag "Wednesday" "wed")
+                 (const :tag "Thursday" "thu")
+                 (const :tag "Friday" "fri")
+                 (const :tag "Saturday" "sat")
+                 (const :tag "Sunday" "sun")))
 
 (defcustom orgbox-start-of-weekends "10:00"
   "What time does your weekends start?"
@@ -118,10 +130,10 @@
 (defun orgbox-schedule-later-today ()
   "Schedule a task for later today."
   (interactive)
-  (let ((later-today (format-time-string "%Y-%m-%d %H:%M"
-                                           (time-add (current-time)
-                                                     (seconds-to-time (* orgbox-later 60 60))))))
-    (org-agenda-schedule nil later-today)))
+  (let ((later (format-time-string "%Y-%m-%d %H:%M"
+                                   (time-add (current-time)
+                                             (seconds-to-time (* orgbox-later 60 60))))))
+    (org-agenda-schedule nil later)))
 
 (defun orgbox-evening-p ()
   "Is already evening?"
@@ -153,7 +165,7 @@
 (defun orgbox-schedule-next-week ()
   "Schedule a task for next week."
   (interactive)
-  (org-agenda-schedule nil (format "+mon %s" orgbox-start-of-day)))
+  (org-agenda-schedule nil (format "+%s %s" orgbox-start-of-week orgbox-start-of-day)))
 
 (defun orgbox-schedule-in-a-month ()
   "Schedule a task for 1 month later."
