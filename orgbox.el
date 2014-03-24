@@ -46,10 +46,11 @@
 (require 'cl-lib)
 (require 'org-agenda)
 
-(defvar orgbox-start-of-day)
-(defvar orgbox-start-of-week)
-(defvar orgbox-start-of-weekends)
-(defvar orgbox-start-of-evening)
+(defvar orgbox-start-time-of-day)
+(defvar orgbox-start-day-of-week)
+(defvar orgbox-start-time-of-weekends)
+(defvar orgbox-start-day-of-weekends)
+(defvar orgbox-start-time-of-evening)
 (defvar orgbox-later)
 (defvar orgbox-someday)
 
@@ -57,12 +58,12 @@
   "Mailbox-like task scheduling in org agenda."
   :group 'org)
 
-(defcustom orgbox-start-of-day "8:00"
+(defcustom orgbox-start-time-of-day "8:00"
   "What time does your day start?"
   :group 'orgbox
   :type 'string)
 
-(defcustom orgbox-start-of-week "mon"
+(defcustom orgbox-start-day-of-week "mon"
   "What day does your week start?"
   :group 'orgbox
   :type '(choice (const :tag "Monday" "mon")
@@ -73,12 +74,23 @@
                  (const :tag "Saturday" "sat")
                  (const :tag "Sunday" "sun")))
 
-(defcustom orgbox-start-of-weekends "10:00"
+(defcustom orgbox-start-time-of-weekends "10:00"
   "What time does your weekends start?"
   :group 'orgbox
   :type 'string)
 
-(defcustom orgbox-start-of-evening "18:00"
+(defcustom orgbox-start-day-of-weekends "sat"
+  "What day does your weekends start?"
+  :group 'orgbox
+  :type '(choice (const :tag "Monday" "mon")
+                 (const :tag "Tuesday" "tue")
+                 (const :tag "Wednesday" "wed")
+                 (const :tag "Thursday" "thu")
+                 (const :tag "Friday" "fri")
+                 (const :tag "Saturday" "sat")
+                 (const :tag "Sunday" "sun")))
+
+(defcustom orgbox-start-time-of-evening "18:00"
   "What time does your evening start?"
   :group 'orgbox
   :type 'string)
@@ -137,19 +149,19 @@
 
 (defun orgbox-evening-p ()
   "Is already evening?"
-  (string< orgbox-start-of-evening (format-time-string "%H:%M" (current-time))))
+  (string< orgbox-start-time-of-evening (format-time-string "%H:%M" (current-time))))
 
 (defun orgbox-schedule-this-or-tomorrow-evening ()
   "Schedule a task for this or tomorrow evening."
   (interactive)
   (if (orgbox-evening-p)
-      (org-agenda-schedule nil (format "+1d %s" orgbox-start-of-evening))
-    (org-agenda-schedule nil orgbox-start-of-evening)))
+      (org-agenda-schedule nil (format "+1d %s" orgbox-start-time-of-evening))
+    (org-agenda-schedule nil orgbox-start-time-of-evening)))
 
 (defun orgbox-schedule-tomorrow ()
   "Schedule a task for tomorrow."
   (interactive)
-  (org-agenda-schedule nil (format "+1d %s" orgbox-start-of-day)))
+  (org-agenda-schedule nil (format "+1d %s" orgbox-start-time-of-day)))
 
 (defun orgbox-weekend-p ()
   "Today is weekend?"
@@ -160,12 +172,12 @@
 (defun orgbox-schedule-this-or-next-weekend ()
   "Schedule a task for this or next weekend."
   (interactive)
-  (org-agenda-schedule nil (format "+sat %s" orgbox-start-of-weekends)))
+  (org-agenda-schedule nil (format "+%s %s" orgbox-start-day-of-weekends orgbox-start-time-of-weekends)))
 
 (defun orgbox-schedule-next-week ()
   "Schedule a task for next week."
   (interactive)
-  (org-agenda-schedule nil (format "+%s %s" orgbox-start-of-week orgbox-start-of-day)))
+  (org-agenda-schedule nil (format "+%s %s" orgbox-start-day-of-week orgbox-start-time-of-day)))
 
 (defun orgbox-schedule-in-a-month ()
   "Schedule a task for 1 month later."

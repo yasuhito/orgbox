@@ -4,14 +4,16 @@
 
 ### New features
 
-* New defcustom `orgbox-start-of-day` allows users to customize the
-  start time of day.
-* New defcustom `orgbox-start-of-week` allows users to customize the
-  start day of week.
-* New defcustom `orgbox-start-of-weekends` allows users to customize
-  the start time of weekends.
-* New defcustom `orgbox-start-of-evening` allows users to customize
-  the start time of evening.
+* New defcustom `orgbox-start-time-of-day` allows users to customize
+  the start time of day.
+* New defcustom `orgbox-start-day-of-week` allows users to customize
+  the start day of week.
+* New defcustom `orgbox-start-time-of-weekends` allows users to
+  customize the start time of weekends.
+* New defcustom `orgbox-start-day-of-weekends` allows users to
+  customize the start day of weekends.
+* New defcustom `orgbox-start-time-of-evening` allows users to
+  customize the start time of evening.
 * New defcustom `orgbox-later` allows users to customize 'later'.
 * New defcustom `orgbox-someday` allows users to customize 'someday'.
 
