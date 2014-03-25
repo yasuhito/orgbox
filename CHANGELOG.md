@@ -1,5 +1,39 @@
 # Changelog
 
+## develop (unreleased)
+
+### New features
+
+* New function `orgbox-schedule` for org-mode buffer.
+* New function `orgbox-schedule-lator-today` for org-mode buffer.
+* New function `orgbox-schedule-this-or-tomorrow-evening` for org-mode
+  buffer.
+* New function `orgbox-schedule-tomorrow` for org-mode buffer.
+* New function `orgbox-schedule-this-or-next-weekend` for org-mode
+  buffer.
+* New function `orgbox-schedule-next-week` for org-mode buffer.
+* New function `orgbox-schedule-in-a-month` for org-mode buffer.
+* New function `orgbox-schedule-someday` for org-mode buffer.
+
+### Changes
+
+* Replaced function `orgbox-schedule` with `orgbox-agenda-schedule`.
+* Replaced function `orgbox-schedule-later-today` with
+  `orgbox-agenda-schedule-later-today`.
+* Replaced function `orgbox-schedule-this-or-tomorrow-evening` with
+  `orgbox-agenda-schedule-this-or-tomorrow-evening`
+* Replaced function `orgbox-schedule-tomorrow` with
+  `orgbox-agenda-schedule-tomorrow`
+* Replaced function `orgbox-schedule-this-or-next-weekend` with
+  `orgbox-agenda-schedule-this-or-next-weekend`
+* Replaced function `orgbox-schedule-next-week` with
+  `orgbox-agenda-schedule-next-week`
+* Replaced function `orgbox-schedule-in-a-month` with
+  `orgbox-agenda-schedule-in-a-month`
+* Replaced function `orgbox-schedule-someday` with
+  `orgbox-agenda-schedule-someday`
+
+
 ## 0.3.0 (3/24/2004)
 
 ### New features
