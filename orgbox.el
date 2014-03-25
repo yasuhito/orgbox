@@ -1,4 +1,4 @@
-;;; orgbox.el --- Mailbox-like task scheduling in org agenda.
+;;; orgbox.el --- Mailbox-like task scheduling Org.
 
 ;; Copyright © 2014 Yasuhito Takamiya <yasuhito@gmail.com>
 
@@ -29,7 +29,7 @@
 ;;; Commentary:
 ;;
 ;; This package defines a set of handy functions to schedule your
-;; agenda tasks like Mailbox (http://www.mailboxapp.com/).  Supported
+;; tasks like Mailbox (http://www.mailboxapp.com/).  Supported
 ;; scheduling methods are as follows:
 ;;
 ;; - Later Today
