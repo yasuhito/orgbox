@@ -1,14 +1,13 @@
 orgbox
 ======
 
-Mailbox-like task scheduling in org agenda.
+Mailbox-like task scheduling in Org.
 
 
 Usage
 =====
 
-In Org-Agenda view, move your cursor to a task you want to schedule
-and type <kbd>C-c C-s</kbd> (<kbd>M-x orgbox</kbd>).
+Move your cursor to a task you want to schedule and type <kbd>C-c C-s</kbd>.
 
 [![Screenshot](https://raw.github.com/yasuhito/orgbox/develop/screenshot.png)][screenshot]
 [screenshot]: https://raw.github.com/yasuhito/orgbox/develop/screenshot.png
