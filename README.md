@@ -1,7 +1,10 @@
 orgbox
 ======
+[![Gittip](http://img.shields.io/gittip/yasuhito.svg)][gittip]
 
 Mailbox-like task scheduling in Org.
+
+[gittip]: https://www.gittip.com/yasuhito/
 
 
 Usage
