@@ -6,7 +6,9 @@ orgbox
 [travis]: http://travis-ci.org/yasuhito/orgbox
 [gittip]: https://www.gittip.com/yasuhito/
 
-Mailbox-like task scheduling in Org.
+[Mailbox][mailbox]-like task scheduling in Org.
+
+[mailbox]: http://www.mailboxapp.com/
 
 
 Usage
@@ -21,7 +23,7 @@ Move your cursor to a task you want to schedule and type <kbd>C-c C-s</kbd>.
 Installation
 ============
 
-The recommended way to install orgbox is via MELPA or el-get.
+The recommended way to install orgbox is via MELPA.
 
 ### MELPA
 
@@ -29,11 +31,15 @@ If you're an Emacs 24 user or you have a recent version of
 `package.el` you can install orgbox from the
 [MELPA](http://melpa.milkbox.net) repository.
 
-`M-x package-install orgbox`
+```
+M-x package-install orgbox
+```
 
 ### el-get
 
 orgbox is also available for installation from the
 [el-get](https://github.com/dimitri/el-get) package manager.
 
-`M-x el-get-install orgbox`
+```
+M-x el-get-install orgbox
+```
