@@ -1,10 +1,12 @@
 orgbox
 ======
+[![Build Status](http://img.shields.io/travis/yasuhito/orgbox/develop.svg)][travis]
 [![Gittip](http://img.shields.io/gittip/yasuhito.svg)][gittip]
 
-Mailbox-like task scheduling in Org.
-
+[travis]: http://travis-ci.org/yasuhito/orgbox
 [gittip]: https://www.gittip.com/yasuhito/
+
+Mailbox-like task scheduling in Org.
 
 
 Usage
