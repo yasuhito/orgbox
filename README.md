@@ -1,9 +1,11 @@
 orgbox
 ======
-[![Build Status](http://img.shields.io/travis/yasuhito/orgbox/develop.svg)][travis]
-[![Gittip](http://img.shields.io/gittip/yasuhito.svg)][gittip]
+[![Build Status](http://img.shields.io/travis/yasuhito/orgbox/develop.svg?style=flat)][travis]
+[![Gitter chat](http://img.shields.io/badge/GITTER-orgbox-brightgreen.svg?style=flat)][gitter]
+[![Gittip](http://img.shields.io/gittip/yasuhito.svg?style=flat)][gittip]
 
 [travis]: http://travis-ci.org/yasuhito/orgbox
+[gitter]: https://gitter.im/yasuhito/orgbox
 [gittip]: https://www.gittip.com/yasuhito/
 
 [Mailbox][mailbox]-like task scheduling in Org.
