@@ -1,7 +1,7 @@
 orgbox
 ======
 [![Build Status](http://img.shields.io/travis/yasuhito/orgbox/develop.svg?style=flat)][travis]
-[![Gitter chat](http://img.shields.io/badge/GITTER-orgbox-brightgreen.svg?style=flat)][gitter]
+[![Gitter chat](http://img.shields.io/badge/GITTER-orgbox-blue.svg?style=flat)][gitter]
 [![Gittip](http://img.shields.io/gittip/yasuhito.svg?style=flat)][gittip]
 
 [travis]: http://travis-ci.org/yasuhito/orgbox
