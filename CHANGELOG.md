@@ -2,6 +2,17 @@
 
 ## develop (unreleased)
 
+
+## 0.5.0 (5/29/2004)
+
+### New features
+
+* New functions `orgbox-now`, `orgbox-schedule-now` and `orgbox-agenda-schedule-now`.
+  It's bound to <kbd>[SPC]</kbd>
+
+
+## 0.4.0 (3/25/2004)
+
 ### New features
 
 * New function `orgbox-schedule` for org-mode buffer.
