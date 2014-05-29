@@ -8,7 +8,7 @@
 ### New features
 
 * New functions `orgbox-now`, `orgbox-schedule-now` and `orgbox-agenda-schedule-now`.
-  It's bound to <kbd>[SPC]</kbd>
+  It's bound to <kbd>SPC</kbd>
 
 
 ## 0.4.0 (3/25/2004)
