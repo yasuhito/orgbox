@@ -281,12 +281,30 @@
   (orgbox-for-someday 'org-agenda-schedule))
 
 
+;; Now
+
+(defun orgbox-now (func)
+  "Call FUNC to schedule a task to do now."
+  (let ((now (format-time-string "%Y-%m-%d %H:%M" (current-time))))
+    (funcall func nil now)))
+
+(defun orgbox-schedule-now ()
+  "Schedule a task to do now."
+  (interactive)
+  (orgbox-now 'org-schedule))
+
+(defun orgbox-agenda-schedule-now ()
+  "Schedule a task to do now."
+  (interactive)
+  (orgbox-now 'org-agenda-schedule))
+
+
 ;; Schedule commands
 
 (defun orgbox-prompt ()
   "Prompt orgbox menu."
   (message "Schedule: [l]ater today  %s [e]vening  [t]omorrow  %s [w]eekend
-          [n]ext week  in a [m]onth  [s]omeday  [p]ick date  [q]uit/abort"
+          [n]ext week  in a [m]onth  [s]omeday  [p]ick date  [SPC] now  [q]uit/abort"
            (if (orgbox-evening-p) "tomorrow" "this")
            (if (orgbox-weekend-p) "next" "this")))
 
@@ -304,6 +322,7 @@
       (?m (call-interactively 'orgbox-schedule-in-a-month))
       (?s (call-interactively 'orgbox-schedule-someday))
       (?p (call-interactively 'org-schedule))
+      (32 (call-interactively 'orgbox-schedule-now))
       (?q (message "Abort"))
       (otherwise (error "Invalid key")))))
 
@@ -321,6 +340,7 @@
       (?m (call-interactively 'orgbox-agenda-schedule-in-a-month))
       (?s (call-interactively 'orgbox-agenda-schedule-someday))
       (?p (call-interactively 'org-agenda-schedule))
+      (32 (call-interactively 'orgbox-agenda-schedule-now))
       (?q (message "Abort"))
       (otherwise (error "Invalid key")))))
 
