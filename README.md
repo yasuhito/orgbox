@@ -10,6 +10,8 @@ orgbox
 
 [Mailbox][mailbox]-like task scheduling in Org.
 
+If you have any questions, click on the gitter badge to join the conversation.
+
 [mailbox]: http://www.mailboxapp.com/
 
 
