@@ -308,23 +308,25 @@
            (if (orgbox-evening-p) "tomorrow" "this")
            (if (orgbox-weekend-p) "next" "this")))
 
-(defun orgbox-schedule ()
+(defun orgbox-schedule (arg)
   "Schedule a task interactively."
-  (interactive)
-  (orgbox-prompt)
-  (let ((a (read-char-exclusive)))
-    (cl-case a
-      (?l (call-interactively 'orgbox-schedule-later-today))
-      (?e (call-interactively 'orgbox-schedule-this-or-tomorrow-evening))
-      (?t (call-interactively 'orgbox-schedule-tomorrow))
-      (?w (call-interactively 'orgbox-schedule-this-or-next-weekend))
-      (?n (call-interactively 'orgbox-schedule-next-week))
-      (?m (call-interactively 'orgbox-schedule-in-a-month))
-      (?s (call-interactively 'orgbox-schedule-someday))
-      (?p (call-interactively 'org-schedule))
-      (32 (call-interactively 'orgbox-schedule-now))
-      (?q (message "Abort"))
-      (otherwise (error "Invalid key")))))
+  (interactive "P")
+  (if arg
+      (call-interactively 'org-schedule)
+    (orgbox-prompt)
+    (let ((a (read-char-exclusive)))
+      (cl-case a
+        (?l (call-interactively 'orgbox-schedule-later-today))
+        (?e (call-interactively 'orgbox-schedule-this-or-tomorrow-evening))
+        (?t (call-interactively 'orgbox-schedule-tomorrow))
+        (?w (call-interactively 'orgbox-schedule-this-or-next-weekend))
+        (?n (call-interactively 'orgbox-schedule-next-week))
+        (?m (call-interactively 'orgbox-schedule-in-a-month))
+        (?s (call-interactively 'orgbox-schedule-someday))
+        (?p (call-interactively 'org-schedule))
+        (32 (call-interactively 'orgbox-schedule-now))
+        (?q (message "Abort"))
+        (otherwise (error "Invalid key"))))))
 
 (defun orgbox-agenda-schedule ()
   "Schedule a task interactively."
