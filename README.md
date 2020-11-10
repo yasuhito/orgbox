@@ -48,3 +48,16 @@ orgbox is also available for installation from the
 ```
 M-x el-get-install orgbox
 ```
+
+
+Activation
+==========
+
+To activate orgbox add
+
+``` emacs-lisp
+(require 'orgbox)
+```
+
+to your initializion file (init.el).
+
