@@ -53,11 +53,11 @@ M-x el-get-install orgbox
 Activation
 ==========
 
-To activate orgbox run
+To activate orgbox add
 
 ``` emacs-lisp
 (require 'orgbox)
 ```
 
-in your initializion file (init.el).
+to your initializion file (init.el).
 
